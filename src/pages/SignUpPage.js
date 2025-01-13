@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase'; // Your initialized Firebase Auth
 import { useNavigate } from 'react-router-dom';
 
-function SignInPage() {
+function SignUpPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState(null);
   const navigate = useNavigate();
 
-  const handleSignIn = async (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate('/tickets'); // redirect after sign-in
+      await createUserWithEmailAndPassword(auth, email, password);
+      // After successful sign-up, you can auto-redirect to a protected route:
+      navigate('/tickets');
     } catch (error) {
       setErrorMsg(error.message);
     }
@@ -21,8 +22,8 @@ function SignInPage() {
 
   return (
     <div style={{ margin: '20px' }}>
-      <h1>Sign In</h1>
-      <form onSubmit={handleSignIn}>
+      <h1>Sign Up</h1>
+      <form onSubmit={handleSignUp}>
         <div>
           <label>Email: </label>
           <input 
@@ -39,11 +40,11 @@ function SignInPage() {
             onChange={(e) => setPassword(e.target.value)} 
           />
         </div>
-        <button type="submit">Sign In</button>
+        <button type="submit">Sign Up</button>
       </form>
       {errorMsg && <p style={{ color: 'red' }}>{errorMsg}</p>}
     </div>
   );
 }
 
-export default SignInPage;
+export default SignUpPage;

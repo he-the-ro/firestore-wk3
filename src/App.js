@@ -5,7 +5,9 @@ import { useAuth } from './hooks/useAuth';
 import HomePage from './pages/HomePage';
 import SignInPage from './pages/SignInPage';
 import NotFoundPage from './pages/NotFoundPage';
+import SignUpPage from './pages/SignUpPage';
 import ProtectedRoute from './routes/ProtectedRoute';
+import TicketList from './components/Ticketlist';
 import './styles.css';
 
 function App() {
@@ -25,11 +27,12 @@ function App() {
           path="/tickets/*"
           element={
             <ProtectedRoute user={user}>
+                <TicketList />
               {/* Insert routes for /tickets here */}
             </ProtectedRoute>
           }
         />
-        
+        <Route path="/signup" element={<SignUpPage />} />
         <Route path="/signin" element={<SignInPage />} />
         
         {/* 404 Not Found */}

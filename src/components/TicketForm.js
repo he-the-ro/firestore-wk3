@@ -17,8 +17,6 @@ function TicketForm() {
         issue,
         userName,
         timestamp: timestamp(),
-        // We'll calculate 'formattedWaitTime' on retrieval, 
-        // but you could also store an initial value here if you want.
       });
       setIssue('');
       setUserName('');

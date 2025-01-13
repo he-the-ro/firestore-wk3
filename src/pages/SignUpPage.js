@@ -13,7 +13,7 @@ function SignUpPage() {
     e.preventDefault();
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      // After successful sign-up, you can auto-redirect to a protected route:
+      // After successful sign-up, auto-redirect to a protected route:
       navigate('/tickets');
     } catch (error) {
       setErrorMsg(error.message);

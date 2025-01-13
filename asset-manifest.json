@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/firebase-wk3/static/css/main.7a52fb83.css",
+    "main.js": "/firebase-wk3/static/js/main.438333ea.js",
+    "index.html": "/firebase-wk3/index.html",
+    "main.7a52fb83.css.map": "/firebase-wk3/static/css/main.7a52fb83.css.map",
+    "main.438333ea.js.map": "/firebase-wk3/static/js/main.438333ea.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7a52fb83.css",
+    "static/js/main.438333ea.js"
+  ]
+}
